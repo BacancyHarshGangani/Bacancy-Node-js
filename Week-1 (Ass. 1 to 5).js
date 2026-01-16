@@ -58,11 +58,19 @@ function calculateTotalPrice(price, quantity)
 
 function applycoupon(amount, couponCode)
 {
-    if (couponCode === 'SAVE10') {
-        return amount * 0.9;
-    } else if (couponCode === 'SAVE20') {
-        return amount * 0.8;
-    } else {
-        return amount;
-    }
+   let code = couponCode.slice(0,4);
+   let discount = couponCode.slice(4);
+   console.log(code);
+
+   if(code === 'SAVE')
+   {
+       discount = amount * (parseInt(discount) / 100);
+
+       console.log(amount - discount);
+   }
+   else{
+       return None;
+   }
+   
 }
+
