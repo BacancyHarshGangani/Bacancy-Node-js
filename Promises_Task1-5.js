@@ -42,20 +42,25 @@ prr.then(res => console.log(res));
 
 // Task 4: Promise.all with mixed delays
 
-const pr1 = new Promise((res, rej) =>{
-    setTimeout(() =>{
-        res("Promise 1")
-    }, 2000);
-})
+function fun4 ()
+{
+    const pr1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Success1");
+        }, 1000); 
+    })
 
-const pr2 = new Promise((res, rej) =>{
-    setTimeout(() =>{
-        res("Promise 2")
-    }, 4000);
-})
 
-pr1.then(res => console.log(res));
-pr2.then(res => console.log(res));
+    const pr2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Success2");
+        }, 2000); 
+    })
+
+
+    Promise.all([pr1, pr2]).then(res => console.log(res));
+}
+fun4();
 
 // Task 5: Promise.finally usage
 
