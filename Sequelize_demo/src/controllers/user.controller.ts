@@ -40,3 +40,4 @@ export const getUserById = async (req: Request, res: Response) => {
     });
   }
 };
+

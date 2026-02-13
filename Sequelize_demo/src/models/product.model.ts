@@ -6,7 +6,7 @@ interface ProductAttributes {
     name: string;
     description: string;
     price: number;
-    quantity: number;
+    stock: number;
 }
 
 interface ProductCreationAttributes extends Optional<ProductAttributes, "id"> {}
@@ -17,7 +17,7 @@ class Product extends Model<ProductAttributes, ProductCreationAttributes>
     public name!: string;
     public description!: string;
     public price!: number;
-    public quantity!: number;
+    public stock!: number;
 
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
@@ -42,7 +42,7 @@ Product.init(
             type: DataTypes.FLOAT,
             allowNull: false,
         },
-        quantity: {
+        stock: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
